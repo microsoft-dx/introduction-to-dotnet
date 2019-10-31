@@ -10,6 +10,32 @@ namespace Classes
         // Main Entry Point
         static void Main(string[] args)
         {
+            ClassesWithSimpleInstructions();
+            Console.Read();
+        }
+
+        static void ClassesWithSimpleInstructions()
+        {
+
+            Human Bob = new Human("Bobert");
+            Console.WriteLine(Bob.PresentYourself());
+            Console.WriteLine(Human.Count);
+            Console.WriteLine(Bob.TellGender());
+
+            Human Alice = new Human("Ana");
+            Console.WriteLine(Alice.PresentYourself());
+            Console.WriteLine(Human.Count);
+            Console.WriteLine(Alice.TellGender());
+
+            Console.WriteLine(Alice.NumberOfVowelsWithFor());
+            Console.WriteLine(Alice.NumberOfVowelsWithWhile());
+            Console.WriteLine(Alice.NumberOfVowelsWithDoWhile());
+
+            // OneLiner
+            // Alice.Name.ToLower().ToCharArray().Sum(x => (new char[]{'a', 'e', 'i', 'o', 'u', 'y'}).Contains(x) ? 1 : 0));
+        }
+        static void JustClasses()
+        {
             /*
             Console.Write(CustomHello());
             Console.Write(CustomHello());
@@ -45,8 +71,6 @@ namespace Classes
 
             Console.WriteLine(Human.HumanCount);
             Console.WriteLine(Ana.FullDescription());
-
-            Console.Read();
         }
 
         static string CustomHello()
@@ -54,9 +78,4 @@ namespace Classes
             return "Hello World!";
         }
     }
-
-    class NewClass { }
-
-
-
 }

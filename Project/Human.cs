@@ -2,37 +2,92 @@
 {
     class Human
     {
-        // Those are non-static Members
+        public static int Count = 10;
         public string Name;
-        private bool isABoy;
-        private int ID;
 
-        // This is a static Member
-        public static int HumanCount = -100;
-
-        // This is a constructor with a parameter
-        public Human(string nameOfHuman)
+        public Human(string givenName)
         {
-            Name = nameOfHuman;
-            //isABoy = true;
+            Count++;
 
-            ID = HumanCount;
-            HumanCount += 1;
+            Name = Count.ToString() + givenName;
         }
 
-        // This is a method
-        public string FullDescription()
+        public string PresentYourself()
         {
-            return ID.ToString() + " " + Name;
+            return "My name is " + Name;
         }
 
-        // This is also method
         public string TellGender()
         {
-            if (isABoy)
-                return "Male";
+            if (Name == null)
+                return "";
+
+            if (Name.EndsWith("a"))
+            {
+                return "I am a girl";
+            }
             else
-                return "Female";
+            {
+                return "I am a boy";
+            }
         }
+
+        public int NumberOfVowelsWithFor()
+        {
+            char[] nameByChar = Name.ToCharArray();
+            int numberOfV = 0;
+            char[] listOfVowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
+
+            for (int i = 0; i < nameByChar.Length; i += 1)
+            {
+                if (listOfVowels.Contains(nameByChar[i]))
+                {
+                    numberOfV++;
+                }
+            }
+
+            return numberOfV;
+        }
+
+        public int NumberOfVowelsWithWhile()
+        {
+            char[] nameByChar = Name.ToCharArray();
+            int numberOfV = 0;
+            char[] listOfVowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
+
+            int j = 0;
+            while (j < nameByChar.Length)
+            {
+                char currentLetter = nameByChar[j];
+                if (listOfVowels.Contains(currentLetter))
+                {
+                    numberOfV++;
+                }
+                j++;
+            }
+
+            return numberOfV;
+        }
+
+        public int NumberOfVowelsWithDoWhile()
+        {
+            char[] nameByChar = Name.ToCharArray();
+            int numberOfV = 0;
+            char[] listOfVowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
+
+            int j = 0;
+            while (j < nameByChar.Length)
+            {
+                char currentLetter = nameByChar[j];
+                if (listOfVowels.Contains(currentLetter))
+                {
+                    numberOfV++;
+                }
+                j++;
+            }
+
+            return numberOfV;
+        }
+        
     }
 }
