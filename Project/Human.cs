@@ -5,27 +5,61 @@ namespace Humans
 {
     class Human
     {
-        public static int Count = 10;
-        public string Name;
+        private static int _humanCount = 10;
+        public static int Count => _humanCount;
+
+        public static int HumanCount;
+
+        private string _currentName;
+
+        private bool _policeFoundMe;
+
+        public string FullName
+        {
+            get
+            {
+                Console.WriteLine("I am a getter and I am amazing");
+
+                return _currentName;
+            }
+            set
+            {
+                if (value.Contains(_currentName))
+                    _currentName = value;
+                else
+                {
+                    Console.WriteLine(
+                        "The new name does not containt the initial name, sorry" +
+                        "! The new name should be: " + value);
+                }
+            }
+        }
+        private string _autoFullName;
+        public string NonAutoFullName
+        {
+            get { return _autoFullName; }
+            set { _autoFullName = value; }
+        }
+        public string AutFullName { get; set; }
 
         public Human(string givenName)
         {
-            Count++;
+            _humanCount++;
 
-            Name = Count.ToString() + givenName;
+            _currentName = givenName;
         }
 
         public string PresentYourself()
         {
-            return "My name is " + Name;
+            return "My name is " + _currentName;
         }
 
         public string TellGender()
         {
-            if (Name == null)
+            if (_currentName == null)
                 return "";
 
-            if (Name.EndsWith("a"))
+            if (_currentName.EndsWith("a"))
             {
                 return "I am a girl";
             }
@@ -37,7 +71,7 @@ namespace Humans
 
         public int NumberOfVowelsWithFor()
         {
-            char[] nameByChar = Name.ToCharArray();
+            char[] nameByChar = _currentName.ToCharArray();
             int numberOfV = 0;
             char[] listOfVowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
 
@@ -52,9 +86,17 @@ namespace Humans
             return numberOfV;
         }
 
+        public string TellFullName(bool isThePolice)
+        {
+            if (isThePolice)
+                return _currentName;
+
+            return "";
+        }
+
         public int NumberOfVowelsWithWhile()
         {
-            char[] nameByChar = Name.ToCharArray();
+            char[] nameByChar = _currentName.ToCharArray();
             int numberOfV = 0;
             char[] listOfVowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
 
@@ -74,12 +116,12 @@ namespace Humans
 
         internal string FullDescription()
         {
-            return "Hello, my name is " + Name;
+            return "Hello, my name is " + _currentName;
         }
 
         public int NumberOfVowelsWithDoWhile()
         {
-            char[] nameByChar = Name.ToCharArray();
+            char[] nameByChar = _currentName.ToCharArray();
             int numberOfV = 0;
             char[] listOfVowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
 
@@ -96,6 +138,6 @@ namespace Humans
 
             return numberOfV;
         }
-        
+
     }
 }

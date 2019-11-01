@@ -10,8 +10,26 @@ namespace Classes
         // Main Entry Point
         static void Main(string[] args)
         {
-            ClassesWithSimpleInstructions();
+            GettersAndSetters();
+
             Console.Read();
+        }
+
+        static void GettersAndSetters()
+        {
+            Human Bob = new Human("Bob");
+            Console.WriteLine(Human.Count);
+
+            Bob.FullName = "Alice";
+            Bob.FullName = "Maria";
+
+            Bob.FullName = "Sir. Bob the Great";
+            Bob.FullName = "Mariaaaaaaaaa";
+            Bob.FullName = "IDK anymore";
+            Bob.FullName = "Sir. Bob the Greatest";
+            Bob.FullName = "Sir. Bob";
+
+            Console.WriteLine(Bob.FullName);
         }
 
         static void ClassesWithSimpleInstructions()
@@ -34,6 +52,7 @@ namespace Classes
             // OneLiner
             // Alice.Name.ToLower().ToCharArray().Sum(x => (new char[]{'a', 'e', 'i', 'o', 'u', 'y'}).Contains(x) ? 1 : 0));
         }
+
         static void JustClasses()
         {
             /*
@@ -46,8 +65,8 @@ namespace Classes
 
             // Calling the console witht the method of an object
             Console.WriteLine(John.FullDescription());
-            John.Name += " Something";
-            Console.WriteLine(John.Name);
+            //John._currentName += " Something";
+            //Console.WriteLine(John._currentName);
             Console.WriteLine(John.TellGender());
 
             // Creating another Human
@@ -66,8 +85,7 @@ namespace Classes
 
             Console.WriteLine(Human.Count);
 
-            Human.Count += 6;
-
+            Human.HumanCount += 6;
 
             Console.WriteLine(Human.Count);
             Console.WriteLine(Ana.FullDescription());
