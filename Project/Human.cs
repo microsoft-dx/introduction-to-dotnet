@@ -1,4 +1,7 @@
-﻿namespace Humans
+﻿using System;
+using System.Linq;
+
+namespace Humans
 {
     class Human
     {
@@ -67,6 +70,11 @@
             }
 
             return numberOfV;
+        }
+
+        internal string FullDescription()
+        {
+            return "Hello, my name is " + Name;
         }
 
         public int NumberOfVowelsWithDoWhile()

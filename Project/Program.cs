@@ -54,7 +54,7 @@ namespace Classes
             Human Ana = new Human("Ana");
 
             // Using the Static Member of a Class
-            Console.WriteLine(Human.HumanCount);
+            Console.WriteLine(Human.Count);
             Console.WriteLine(Ana.FullDescription());
 
             _ = new Human("");
@@ -64,12 +64,12 @@ namespace Classes
             _ = new Human("");
             _ = new Human("");
 
-            Console.WriteLine(Human.HumanCount);
+            Console.WriteLine(Human.Count);
 
-            Human.HumanCount += 6;
+            Human.Count += 6;
 
 
-            Console.WriteLine(Human.HumanCount);
+            Console.WriteLine(Human.Count);
             Console.WriteLine(Ana.FullDescription());
         }
 
