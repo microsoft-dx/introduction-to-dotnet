@@ -1,4 +1,5 @@
-﻿using Humans;
+﻿using Classes.Classes;
+using Humans;
 using System;
 
 namespace Classes
@@ -10,7 +11,67 @@ namespace Classes
         // Main Entry Point
         static void Main(string[] args)
         {
-            GettersAndSetters();
+            Product chocolate = new Product(50);
+            Product foodFor4Days = new Product(2000);
+            LuxuryProduct car = new LuxuryProduct(6000);
+            SuperLuxuryProduct newHouse = new SuperLuxuryProduct(40000);
+
+            var groceryList = new Product[]
+            {
+                chocolate,
+                foodFor4Days,
+                chocolate,
+                chocolate,
+                car,
+                foodFor4Days,
+                chocolate,
+                chocolate,
+                newHouse,
+                chocolate
+            };
+
+            decimal buget = 12000;
+            for (int i = 0; i < groceryList.Length; i++)
+            {
+                if (groceryList[i].CanBuy(buget))
+                {
+                    buget = groceryList[i].BuyProduct(buget);
+                    groceryList[i].YouHaveBoughtThis();
+                    Console.WriteLine("Now I have " + buget);
+                }
+                else
+                {
+                    Console.WriteLine(":(");
+                }
+            }
+
+            // Console.WriteLine(car.IsItGenuine());
+
+            Console.WriteLine("Can I buy Chcolate with 51?");
+            Console.WriteLine(chocolate.CanBuy(51));
+            Console.WriteLine();
+
+            Console.WriteLine("Can I buy Masked Luxury car with 6001?");
+            Console.WriteLine(car.CanBuy(6001));
+            Console.WriteLine("Can I buy Masked Luxury car with 8001?");
+            Console.WriteLine(car.CanBuy(8001));
+            Console.WriteLine();
+
+
+            LuxuryProduct luxuryCar = (LuxuryProduct)car;
+
+            Console.WriteLine("Is the car a luxury car?");
+            Console.WriteLine(car == luxuryCar);
+            Console.WriteLine();
+
+            Console.WriteLine("Is the luxury car genuine?");
+            Console.WriteLine(luxuryCar.IsItGenuine());
+            Console.WriteLine("Can i buy a luxury car with 6001?");
+            Console.WriteLine(luxuryCar.CanBuy(6001));
+            Console.WriteLine("Can i buy a luxury car with 8001?");
+            Console.WriteLine(luxuryCar.CanBuy(8001));
+
+
 
             Console.Read();
         }
